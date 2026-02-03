@@ -6,7 +6,6 @@ import { Navbar } from '../../components/shared/Navbar';
 import { BottomNav } from '../../components/shared/BottomNav';
 import { notificationService } from '../../services/notification.service';
 import { useNotificationStore } from '../../store';
-import { Notification } from '../../types';
 import { formatDate } from '../../utils/helpers';
 
 export const Notifications: React.FC = () => {

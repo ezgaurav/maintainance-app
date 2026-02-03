@@ -1,5 +1,5 @@
 import api from './api';
-import { Issue } from '../types';
+import type { Issue } from '../types';
 
 export const issueService = {
   // Create issue

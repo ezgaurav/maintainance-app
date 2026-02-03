@@ -11,7 +11,7 @@ import { Modal } from '../../components/shared/Modal';
 import { Navbar } from '../../components/shared/Navbar';
 import { BottomNav } from '../../components/shared/BottomNav';
 import { issueService } from '../../services/issue.service';
-import { Issue, User } from '../../types';
+import type { Issue, User } from '../../types';
 import { formatDate } from '../../utils/helpers';
 
 export const JobDetails: React.FC = () => {

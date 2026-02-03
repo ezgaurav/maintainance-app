@@ -8,7 +8,7 @@ import { Textarea } from '../../components/shared/Textarea';
 import { Modal } from '../../components/shared/Modal';
 import { AdminSidebar } from '../../components/shared/AdminSidebar';
 import { sparePartService } from '../../services/sparePart.service';
-import { SparePart } from '../../types';
+import type { SparePart } from '../../types';
 import { SPARE_PART_CATEGORIES } from '../../utils/constants';
 
 export const Inventory: React.FC = () => {

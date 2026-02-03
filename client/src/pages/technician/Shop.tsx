@@ -7,7 +7,7 @@ import { Navbar } from '../../components/shared/Navbar';
 import { BottomNav } from '../../components/shared/BottomNav';
 import { sparePartService } from '../../services/sparePart.service';
 import { useCartStore } from '../../store';
-import { SparePart } from '../../types';
+import type { SparePart } from '../../types';
 import { Input } from '../../components/shared/Input';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 

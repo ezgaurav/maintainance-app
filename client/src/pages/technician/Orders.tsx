@@ -5,7 +5,7 @@ import { Loading } from '../../components/shared/Loading';
 import { Navbar } from '../../components/shared/Navbar';
 import { BottomNav } from '../../components/shared/BottomNav';
 import { sparePartService } from '../../services/sparePart.service';
-import { Order, SparePart } from '../../types';
+import type { Order, SparePart } from '../../types';
 import { formatDate } from '../../utils/helpers';
 
 export const Orders: React.FC = () => {

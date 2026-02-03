@@ -5,7 +5,7 @@ import { Loading } from '../../components/shared/Loading';
 import { Button } from '../../components/shared/Button';
 import { AdminSidebar } from '../../components/shared/AdminSidebar';
 import { userService } from '../../services/user.service';
-import { User } from '../../types';
+import type { User } from '../../types';
 import { StarIcon } from '@heroicons/react/24/solid';
 
 export const Technicians: React.FC = () => {

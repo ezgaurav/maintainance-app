@@ -6,7 +6,7 @@ import { Loading } from '../../components/shared/Loading';
 import { Navbar } from '../../components/shared/Navbar';
 import { BottomNav } from '../../components/shared/BottomNav';
 import { issueService } from '../../services/issue.service';
-import { Issue } from '../../types';
+import type { Issue } from '../../types';
 import { formatDate } from '../../utils/helpers';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 

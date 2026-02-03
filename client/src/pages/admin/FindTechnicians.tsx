@@ -6,7 +6,7 @@ import { Button } from '../../components/shared/Button';
 import { Input } from '../../components/shared/Input';
 import { AdminSidebar } from '../../components/shared/AdminSidebar';
 import { issueService } from '../../services/issue.service';
-import { User } from '../../types';
+import type { User } from '../../types';
 
 interface TechnicianMatch {
   technician: User;

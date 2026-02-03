@@ -4,7 +4,7 @@ import { Badge } from '../../components/shared/Badge';
 import { Loading } from '../../components/shared/Loading';
 import { AdminSidebar } from '../../components/shared/AdminSidebar';
 import { userService } from '../../services/user.service';
-import { User } from '../../types';
+import type { User } from '../../types';
 import { formatDate } from '../../utils/helpers';
 
 export const Users: React.FC = () => {

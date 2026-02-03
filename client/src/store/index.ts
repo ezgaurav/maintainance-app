@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { User, Notification, CartItem, SparePart } from '../types';
+import type { User, Notification, CartItem, SparePart } from '../types';
 import { authService } from '../services/auth.service';
 import { socketService } from '../services/socket.service';
 
@@ -51,7 +51,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 }));
 
-export const useNotificationStore = create<NotificationState>((set, get) => ({
+export const useNotificationStore = create<NotificationState>((set) => ({
   notifications: [],
   unreadCount: 0,
   addNotification: (notification: Notification) => {

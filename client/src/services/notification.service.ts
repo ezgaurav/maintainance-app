@@ -1,5 +1,5 @@
 import api from './api';
-import { Notification } from '../types';
+import type { Notification } from '../types';
 
 export const notificationService = {
   // Get my notifications

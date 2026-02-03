@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '../../components/shared/Card';
-import { Badge } from '../../components/shared/Badge';
 import { Loading } from '../../components/shared/Loading';
 import { AdminSidebar } from '../../components/shared/AdminSidebar';
 import { issueService } from '../../services/issue.service';

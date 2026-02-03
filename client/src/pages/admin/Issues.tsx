@@ -8,7 +8,7 @@ import { Modal } from '../../components/shared/Modal';
 import { AdminSidebar } from '../../components/shared/AdminSidebar';
 import { issueService } from '../../services/issue.service';
 import { userService } from '../../services/user.service';
-import { Issue, User } from '../../types';
+import type { Issue, User } from '../../types';
 import { formatDate } from '../../utils/helpers';
 
 export const Issues: React.FC = () => {

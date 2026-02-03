@@ -1,5 +1,5 @@
 import api from './api';
-import { SparePart, Order } from '../types';
+import type { SparePart, Order } from '../types';
 
 export const sparePartService = {
   // Get all spare parts
@@ -20,9 +20,9 @@ export const sparePartService = {
   },
 
   // Create spare part (admin)
-  createSparePart: async (partData: FormData): Promise<SparePart> => {
+  createSparePart: async (partData: FormData | any): Promise<SparePart> => {
     const { data } = await api.post('/spare-parts', partData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
+      headers: partData instanceof FormData ? { 'Content-Type': 'multipart/form-data' } : {},
     });
     return data;
   },
