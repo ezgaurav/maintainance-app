@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 min-h-screen bg-gray-50;
+  }
+}
+
+/* Leaflet CSS */
+@import 'leaflet/dist/leaflet.css';
