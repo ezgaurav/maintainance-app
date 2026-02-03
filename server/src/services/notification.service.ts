@@ -1,5 +1,4 @@
 import { supabase } from '../config/supabase';
-import { Notification } from '../types';
 import { emitToUser } from '../config/socket';
 
 class NotificationService {

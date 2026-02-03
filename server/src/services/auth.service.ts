@@ -189,9 +189,7 @@ class AuthService {
   /**
    * Send OTP (placeholder - integrate with Supabase Auth or SMS provider)
    */
-  async sendOTP(data: OTPRequest) {
-    const { phone } = data;
-
+  async sendOTP(_data: OTPRequest) {
     // In production, integrate with Supabase Auth or SMS provider like Twilio
     // For now, return a mock OTP (in development only)
     if (process.env.NODE_ENV === 'development') {
