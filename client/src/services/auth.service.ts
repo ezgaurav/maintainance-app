@@ -2,6 +2,21 @@ import api from './api';
 import { AuthResponse, User } from '../types';
 
 export const authService = {
+  // Unified login
+  login: async (phone: string, password: string, role: string): Promise<AuthResponse> => {
+    const endpoint = role === 'admin' ? '/auth/admin/login' : 
+                     role === 'technician' ? '/auth/technician/login' : 
+                     '/auth/customer/login';
+    const { data } = await api.post(endpoint, { phone, password });
+    return data;
+  },
+
+  // Unified register
+  register: async (userData: any): Promise<AuthResponse> => {
+    const { data } = await api.post('/auth/customer/register', userData);
+    return data;
+  },
+
   // Customer login
   loginCustomer: async (phone: string, password: string): Promise<AuthResponse> => {
     const { data } = await api.post('/auth/customer/login', { phone, password });

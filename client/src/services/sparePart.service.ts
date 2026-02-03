@@ -3,6 +3,11 @@ import { SparePart, Order } from '../types';
 
 export const sparePartService = {
   // Get all spare parts
+  getSpareParts: async (filters?: { category?: string; search?: string }): Promise<SparePart[]> => {
+    const { data } = await api.get('/spare-parts', { params: filters });
+    return data;
+  },
+
   getAllSpareParts: async (filters?: { category?: string; search?: string }): Promise<SparePart[]> => {
     const { data } = await api.get('/spare-parts', { params: filters });
     return data;
@@ -36,10 +41,10 @@ export const sparePartService = {
   // Create order
   createOrder: async (orderData: {
     items: Array<{ sparePart: string; quantity: number; price: number }>;
-    totalAmount: number;
     shippingAddress: string;
   }): Promise<Order> => {
-    const { data } = await api.post('/orders', orderData);
+    const totalAmount = orderData.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const { data } = await api.post('/orders', { ...orderData, totalAmount });
     return data;
   },
 

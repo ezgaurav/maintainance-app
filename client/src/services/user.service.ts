@@ -2,6 +2,12 @@ import api from './api';
 import { User } from '../types';
 
 export const userService = {
+  // Get users
+  getUsers: async (filters?: { role?: string }): Promise<User[]> => {
+    const { data } = await api.get('/users', { params: filters });
+    return data;
+  },
+
   // Get all customers (admin)
   getAllCustomers: async (): Promise<User[]> => {
     const { data } = await api.get('/users/customers');
@@ -9,6 +15,11 @@ export const userService = {
   },
 
   // Get all technicians (admin)
+  getTechnicians: async (filters?: { isVerified?: boolean }): Promise<User[]> => {
+    const { data } = await api.get('/users/technicians', { params: filters });
+    return data;
+  },
+
   getAllTechnicians: async (filters?: { isVerified?: boolean }): Promise<User[]> => {
     const { data } = await api.get('/users/technicians', { params: filters });
     return data;
@@ -21,6 +32,11 @@ export const userService = {
   },
 
   // Block/Unblock user (admin)
+  blockUser: async (id: string, block: boolean): Promise<User> => {
+    const { data } = await api.patch(`/users/${id}/block`, { block });
+    return data;
+  },
+
   toggleBlockUser: async (id: string): Promise<User> => {
     const { data } = await api.patch(`/users/${id}/toggle-block`);
     return data;

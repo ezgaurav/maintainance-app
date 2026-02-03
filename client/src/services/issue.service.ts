@@ -26,6 +26,12 @@ export const issueService = {
     return data;
   },
 
+  // Get technician jobs (for technician)
+  getTechnicianJobs: async (): Promise<Issue[]> => {
+    const { data } = await api.get('/issues/technician-jobs');
+    return data;
+  },
+
   // Get assigned jobs (for technician)
   getAssignedJobs: async (): Promise<Issue[]> => {
     const { data } = await api.get('/issues/assigned-jobs');
@@ -39,7 +45,7 @@ export const issueService = {
   },
 
   // Assign technician to issue (admin)
-  assignTechnician: async (issueId: string, technicianId: string): Promise<Issue> => {
+  assignIssue: async (issueId: string, technicianId: string): Promise<Issue> => {
     const { data } = await api.patch(`/issues/${issueId}/assign`, { technicianId });
     return data;
   },
@@ -51,7 +57,7 @@ export const issueService = {
   },
 
   // Reject issue (technician)
-  rejectIssue: async (issueId: string, reason: string): Promise<Issue> => {
+  rejectIssue: async (issueId: string, reason?: string): Promise<Issue> => {
     const { data } = await api.patch(`/issues/${issueId}/reject`, { reason });
     return data;
   },
@@ -59,13 +65,18 @@ export const issueService = {
   // Schedule issue (technician)
   scheduleIssue: async (
     issueId: string,
-    scheduledDate: string,
-    scheduledTime: string
+    scheduleData: { date: string; time: string }
   ): Promise<Issue> => {
     const { data } = await api.patch(`/issues/${issueId}/schedule`, {
-      scheduledDate,
-      scheduledTime,
+      scheduledDate: scheduleData.date,
+      scheduledTime: scheduleData.time,
     });
+    return data;
+  },
+
+  // Start issue (technician)
+  startIssue: async (issueId: string): Promise<Issue> => {
+    const { data } = await api.patch(`/issues/${issueId}/start`);
     return data;
   },
 
@@ -78,8 +89,8 @@ export const issueService = {
   },
 
   // Rate issue (customer)
-  rateIssue: async (issueId: string, rating: number, review?: string): Promise<Issue> => {
-    const { data } = await api.patch(`/issues/${issueId}/rate`, { rating, review });
+  rateIssue: async (issueId: string, ratingData: { rating: number; review?: string }): Promise<Issue> => {
+    const { data } = await api.patch(`/issues/${issueId}/rate`, ratingData);
     return data;
   },
 
