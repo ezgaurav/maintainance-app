@@ -230,7 +230,7 @@ INSERT INTO users (name, phone, email, password_hash, role, otp_verified, email_
 VALUES (
     'Admin User',
     '9999999999',
-    'admin@maintainance.app',
+    'admin@maintenance.app',
     '$2b$10$rBV2xMlc3q0U1YtKJNjJh.XJ5QHC7zPZVz6qMVMFVxKX0Y8K2L3Iq', -- bcrypt hash of 'admin123'
     'admin',
     true,

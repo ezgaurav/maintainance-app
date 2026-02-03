@@ -72,7 +72,7 @@ app.get('/', (_req, res) => {
       orders: '/api/orders',
       notifications: '/api/notifications'
     },
-    documentation: 'https://github.com/ezgaurav/maintainance-app'
+    documentation: 'https://github.com/ezgaurav/maintenance-app'
   });
 });
 
