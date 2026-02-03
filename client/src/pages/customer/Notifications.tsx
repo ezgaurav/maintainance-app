@@ -19,7 +19,7 @@ export const Notifications: React.FC = () => {
 
   const loadNotifications = async () => {
     try {
-      const data = await notificationService.getNotifications();
+      const data = await notificationService.getMyNotifications();
       setNotifications(data);
     } catch (error) {
       console.error('Error loading notifications:', error);

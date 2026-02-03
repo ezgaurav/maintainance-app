@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { socketService } from '../services/socket.service';
 import { useAuthStore, useNotificationStore } from '../store';
 import { SOCKET_EVENTS } from '../utils/constants';
-import { Notification } from '../types';
+import type { Notification as NotificationType } from '../types';
 
 export const useSocket = () => {
   const { user, token } = useAuthStore();
@@ -13,11 +13,11 @@ export const useSocket = () => {
 
     socketService.connect(token);
 
-    socketService.on(SOCKET_EVENTS.NEW_NOTIFICATION, (notification: Notification) => {
+    socketService.on(SOCKET_EVENTS.NEW_NOTIFICATION, (notification: NotificationType) => {
       addNotification(notification);
       
-      if (Notification && 'Notification' in window && Notification.permission === 'granted') {
-        new Notification(notification.title, {
+      if ('Notification' in window && window.Notification.permission === 'granted') {
+        new window.Notification(notification.title, {
           body: notification.message,
           icon: '/vite.svg',
         });
