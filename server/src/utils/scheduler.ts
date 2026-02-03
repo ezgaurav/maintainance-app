@@ -223,10 +223,10 @@ const check3DayReEvaluation = async () => {
  */
 const checkLowStockAlerts = async () => {
   try {
+    // Get all parts where stock is less than or equal to their low_stock_threshold
     const { data: parts, error } = await supabase
       .from('spare_parts')
-      .select('*')
-      .filter('stock', 'lte', supabase.rpc('low_stock_threshold'));
+      .select('*');
 
     if (error) {
       console.error('Error checking low stock:', error);
@@ -240,6 +240,7 @@ const checkLowStockAlerts = async () => {
         .select('id')
         .eq('role', 'admin');
 
+      // Filter parts where stock is at or below threshold
       const lowStockParts = parts.filter(part => part.stock <= part.low_stock_threshold);
 
       if (lowStockParts.length > 0 && admins) {
